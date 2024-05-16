@@ -1,0 +1,300 @@
+/*========== UNIVERSIAL STYLES ============*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: #edebe4;
+    color: #000;
+}
+body {
+    font-size: 16px;
+}
+h1, h2, h3 {
+    font-family: "Kalnia", serif;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 8rem;
+    line-height: 9rem;
+}
+@media only screen and (max-width: 800px) {
+    h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+}
+h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-right: 10px;
+}
+p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    line-height: 1.5rem;
+}
+.bold {
+    font-weight: 700;
+}
+.section {
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 60px; 
+    padding-bottom: 120px; 
+}
+.title-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+@media only screen and (max-width: 768px) {
+    .title-btn {
+        flex-wrap: wrap;
+    }
+    .btn {
+        margin-top: 20px;
+    }
+}
+.btn {
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    font-family: "Kalnia", serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    border: 1px solid #000;
+    padding: 10px 30px;
+    min-width: 230px;
+    white-space: nowrap;
+}
+.btn:hover:after {
+    content: ' >';
+}
+/*========== MEDIA QUERIES ============*/
+@media only screen and (max-width: 868px) {
+    .section, div.archive-txt, section#hero, header nav{
+        padding-right: 10%;
+        padding-left: 10%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .section, div.archive-txt, section#hero, header nav {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+}
+/*========== HEADER/NAV ============*/
+nav {
+    height: 8vh;
+    background-color: #000;
+    color: #edebe4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.logo {
+    font-family: "Kalnia", serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+.nav a, .foot-nav a {
+    color: #edebe4;
+    font-family: "Kalnia", serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.nav a:hover, .foot-nav a:hover {
+    color: #039471;
+}
+nav li {
+    display: inline;
+    margin: 20px;
+}
+@media only screen and (max-width: 615px) {
+    .nav {
+        display: none;
+    }
+}
+/*========== HERO ============*/
+#hero {
+    height: 92vh;
+    color: #edebe4;
+    padding-right: 15%;
+    padding-left: 15%;
+    background-image: url(./images/Self-Portrait-edited.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+#hero img {
+    height: 92vh;
+    width: auto;
+    position: absolute;
+    top: 8vh;
+    right: 0;
+}
+#hero p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    max-width: 800px;
+}
+/*========== ARCHIVE ============*/
+.archive-txt {
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+.archive-imgs {
+    padding-bottom: 100px;
+}
+.archvie-imgs-top, .archvie-imgs-btm {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    overflow: hidden;
+}
+.archive-imgs img {
+    width: 400px;
+}
+@media only screen and (max-width: 1024px) {
+    .archive-imgs img {
+        width: 300px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .archive-imgs img {
+        width: 200px;
+    }
+}
+/*========== PRINTS ============*/
+.prints {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+}
+@media only screen and (max-width: 868px) {
+    .prints {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .p3 {
+        display: none;
+    }
+}
+@media only screen and (max-width: 650px) {
+    .prints {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .p2 {
+        display: none;
+    }
+}
+.print img {
+    border: 1px solid #000;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+}
+.print-info {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.print-title {
+    margin-right: 10px;
+}
+/*========== EVENTS ============*/
+.events {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+}
+.event1 {
+    border: 1px solid #000;
+    padding: 10px;
+}
+.event2 {
+    width: 100%;
+}
+.event1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media only screen and (max-width: 768px) {
+    .event1 {
+        display: none;
+    }
+    .events {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+.event-list {
+    border: 1px solid #000;
+    padding: 10px;
+    margin-top: 30px;
+}
+.title-block {
+    margin-bottom: 30px;
+}
+.event-loc {
+    font-family: "Kalnia", serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-bottom: 20px;
+}
+.map {
+    border: 1px solid #000;
+    padding: 10px;
+    height: 200px;
+    margin-bottom: 20px;
+    background-image: url(./images/brooklyn.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.centered-txt {
+    text-align: right;
+}
+/*========== FOOTER ============*/
+footer {
+    background-color: #000;
+    color: #edebe4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media only screen and (max-width: 575px) {
+    footer {
+        flex-wrap: wrap;
+    }
+    .foot-2 {
+        margin-top: 40px;
+    }
+}
+@media only screen and (min-width: 576px) {
+    .foot-nav li {
+        text-align: right;
+    }
+}
+.foot-1 {
+    max-width: 600px;
+    margin-right: 40px;
+}
+.foot-logo {
+    font-family: "Kalnia", serif;
+    font-size: 4rem;
+    font-weight: 700;
+}
+.foot-nav li {
+    list-style-type: none;
+    line-height: 2.8rem;
+    font-weight: 500;
+}
