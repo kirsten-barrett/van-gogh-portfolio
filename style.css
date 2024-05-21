@@ -10,6 +10,13 @@ html {
 }
 body {
     font-size: 16px;
+    overscroll-behavior: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+html, body {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
 }
 h1, h2, h3 {
     font-family: "Kalnia", serif;
@@ -69,19 +76,20 @@ p {
     border: 1px solid #000;
     padding: 10px 30px;
     min-width: 230px;
+    max-height: 3rem;
     white-space: nowrap;
 }
 .btn:hover:after {
     content: ' >';
 }
 /*========== MEDIA QUERIES ============*/
-@media only screen and (max-width: 868px) {
+@media only screen and (max-width: 1200px) {
     .section, div.archive-txt, section#hero, header nav{
         padding-right: 10%;
         padding-left: 10%;
     }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     .section, div.archive-txt, section#hero, header nav {
         padding-right: 5%;
         padding-left: 5%;
@@ -90,11 +98,9 @@ p {
 /*========== HEADER/NAV ============*/
 nav {
     height: 8vh;
+    align-content: center;
     background-color: #000;
     color: #edebe4;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-left: 15%;
     padding-right: 15%;
 }
@@ -103,24 +109,82 @@ nav {
     font-size: 2.2rem;
     font-weight: 700;
 }
-.nav a, .foot-nav a {
+.nav-bar a, .foot-nav a {
     color: #edebe4;
     font-family: "Kalnia", serif;
     font-size: 1.5rem;
     text-transform: uppercase;
     text-decoration: none;
 }
-.nav a:hover, .foot-nav a:hover {
+.nav-bar a:hover, .foot-nav a:hover {
     color: #039471;
 }
-nav li {
-    display: inline;
-    margin: 20px;
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    padding: 12px 20px;
 }
-@media only screen and (max-width: 615px) {
-    .nav {
-        display: none;
+.menu {display: flex;}
+.menu li {padding-left: 30px;}
+.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.15s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
+}
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color1);
+    transition: 0.15s ease-in-out;
+}
+.menu li a:hover:after {width: 100%;}
+
+.open-menu, .close-menu {
+    position: absolute;
+    color: #edebe4;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.close-menu {
+    top: 20px;
+    right: 20px;
+}
+#check {display: none;}
+@media (max-width: 610px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        background-color: #000;
+        transition: all .2s ease-in-out;
     }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu, .close-menu {display: block;}
+    #check:checked ~ .menu {right: 0;}
 }
 /*========== HERO ============*/
 #hero {
@@ -149,16 +213,15 @@ nav li {
 .archive-txt {
     padding-right: 15%;
     padding-left: 15%;
-    padding-top: 100px;
-    padding-bottom: 40px;
 }
 .archive-imgs {
     padding-bottom: 100px;
+    overflow: hidden;
 }
 .archvie-imgs-top, .archvie-imgs-btm {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    overflow: hidden;
+    /*animation: 13s slide infinite linear;*/
 }
 .archive-imgs img {
     width: 400px;
@@ -171,6 +234,63 @@ nav li {
 @media only screen and (max-width: 768px) {
     .archive-imgs img {
         width: 200px;
+    }
+}
+.container {
+    overscroll-behavior: none;
+    width: 200%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+}
+.top-panel {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+}
+.btm-panel {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+}
+.one {
+    background-image: url(./images/Madame\ Roulin\ Rocking\ the\ Cradle.jpg);
+    background-size: cover;
+}
+.two {
+    background-image: url(./images/The\ Bedroom.jpg);
+    background-size: cover;
+}
+.three {
+    background-image: url(./images/Irises.jpg);
+    background-size: cover;
+}
+.four {
+    background-image: url(./images/Sunflowers.jpg);
+    background-size: cover;
+}
+.five {
+    background-image: url(./images/The\ Drinkers.jpg);
+    background-size: cover;
+}
+.six {
+    background-image: url(./images/Grapes\,\ Lemons\,\ Pears\,\ and\ Apples.jpg);
+    background-size: cover;
+}
+.seven {
+    background-image: url(./images/Shoes.jpg);
+    background-size: cover;
+}
+.eight {
+    background-image: url(./images/Oleanders.jpg);
+    background-size: cover;
+}
+/*@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
     }
 }
 /*========== PRINTS ============*/
@@ -235,6 +355,14 @@ nav li {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+@media only screen and (max-width: 1365px) {
+    .flex-box {
+        flex-direction: column;
+    }
+    .flex-box a {
+        margin-top: 20px;
+    }
+}
 .event-list {
     border: 1px solid #000;
     padding: 10px;
@@ -247,9 +375,17 @@ nav li {
     font-family: "Kalnia", serif;
     font-weight: 200;
     text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 2.5rem;
     margin-bottom: 20px;
+}
+.event-date {
+    
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 .map {
     border: 1px solid #000;
@@ -262,6 +398,15 @@ nav li {
 }
 .centered-txt {
     text-align: right;
+}
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+}
+@media only screen and (min-width: 1366px) {
+    .flex-box {
+        align-items: end;
+    }
 }
 /*========== FOOTER ============*/
 footer {
