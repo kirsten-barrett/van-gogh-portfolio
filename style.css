@@ -220,12 +220,15 @@ nav {
     max-width: 800px;
 }
 /*========== ARCHIVE ============*/
+.archive {
+    overflow: hidden;
+}
 .archive-txt {
     padding-right: 15%;
     padding-left: 15%;
 }
 .container {
-    overscroll-behavior: none;
+    position: relative;
     width: 200%;
     display: flex;
     flex-wrap: nowrap;
@@ -244,8 +247,8 @@ nav {
 }
 @media only screen and (max-width: 768px) {
     .top-panel, .btm-panel {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
     }
 }
 .one {
@@ -406,6 +409,9 @@ div.print {
     .events {
         grid-template-columns: repeat(1, 1fr);
     }
+    .events {
+        margin-top: -40px;
+    }
 }
 @media only screen and (max-width: 1365px) {
     .flex-box {
@@ -432,24 +438,11 @@ div.print {
     margin-bottom: 20px;
 }
 .event-date {
-    
     font-weight: 500;
     font-size: 1.3rem;
     line-height: 2.5rem;
     text-transform: uppercase;
     margin-bottom: 10px;
-}
-.map {
-    border: 1px solid #000;
-    padding: 10px;
-    height: 200px;
-    margin-bottom: 20px;
-    background-image: url(./images/brooklyn.jpg);
-    background-size: cover;
-    background-position: center;
-}
-.centered-txt {
-    text-align: right;
 }
 .flex-box {
     display: flex;
