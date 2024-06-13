@@ -27,12 +27,6 @@ h1 {
     font-size: 8rem;
     line-height: 9rem;
 }
-@media only screen and (max-width: 800px) {
-    h1 {
-        font-size: 4rem;
-        line-height: 4rem;
-    }
-}
 h2 {
     font-size: 3rem;
     line-height: 3rem;
@@ -50,7 +44,7 @@ p {
     padding-right: 15%;
     padding-left: 15%;
     padding-top: 60px; 
-    padding-bottom: 120px; 
+    padding-bottom: 60px; 
 }
 .title-btn {
     display: flex;
@@ -65,6 +59,9 @@ p {
     .btn {
         margin-top: 20px;
     }
+}
+a {
+    text-decoration: none;
 }
 .btn {
     text-decoration: none;
@@ -81,6 +78,13 @@ p {
 }
 .btn:hover:after {
     content: ' >';
+}
+.center {
+    text-align: center;
+}
+.inline-link {
+    font-weight: 500;
+    color: #039471;
 }
 /*========== MEDIA QUERIES ============*/
 @media only screen and (max-width: 1200px) {
@@ -192,17 +196,23 @@ nav {
     color: #edebe4;
     padding-right: 15%;
     padding-left: 15%;
-    background-image: url(./images/Self-Portrait-edited.jpg);
+    background-image: url(./images/hero2.jpg);
+    background-position: top;
     background-size: cover;
     display: flex;
     align-items: center;
 }
-#hero img {
-    height: 92vh;
-    width: auto;
-    position: absolute;
-    top: 8vh;
-    right: 0;
+@media only screen and (max-width: 800px) {
+    #hero {
+        height: 50vh;
+        background-position: right;
+        align-items: end;
+        padding-bottom: 20px;
+    }
+    h1 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
 }
 #hero p {
     font-size: 1.5rem;
@@ -214,28 +224,6 @@ nav {
     padding-right: 15%;
     padding-left: 15%;
 }
-.archive-imgs {
-    padding-bottom: 100px;
-    overflow: hidden;
-}
-.archvie-imgs-top, .archvie-imgs-btm {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    /*animation: 13s slide infinite linear;*/
-}
-.archive-imgs img {
-    width: 400px;
-}
-@media only screen and (max-width: 1024px) {
-    .archive-imgs img {
-        width: 300px;
-    }
-}
-@media only screen and (max-width: 768px) {
-    .archive-imgs img {
-        width: 200px;
-    }
-}
 .container {
     overscroll-behavior: none;
     width: 200%;
@@ -243,15 +231,22 @@ nav {
     flex-wrap: nowrap;
     justify-content: left;
 }
-.top-panel {
+.top-panel, .btm-panel {
     width: 100%;
     height: 50vh;
     position: relative;
 }
-.btm-panel {
-    width: 100%;
-    height: 50vh;
-    position: relative;
+@media only screen and (max-width: 1300px) {
+    .top-panel, .btm-panel {
+        width: 300px;
+        height: 300px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .top-panel, .btm-panel {
+        width: 200px;
+        height: 200px;
+    }
 }
 .one {
     background-image: url(./images/Madame\ Roulin\ Rocking\ the\ Cradle.jpg);
@@ -285,21 +280,14 @@ nav {
     background-image: url(./images/Oleanders.jpg);
     background-size: cover;
 }
-/*@keyframes slide {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
+
 /*========== PRINTS ============*/
 .prints {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
 }
-@media only screen and (max-width: 868px) {
+@media only screen and (max-width: 1200px) {
     .prints {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -307,7 +295,7 @@ nav {
         display: none;
     }
 }
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 700px) {
     .prints {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -315,19 +303,83 @@ nav {
         display: none;
     }
 }
-.print img {
+.overlay {
     border: 1px solid #000;
     padding: 10px;
-    width: 100%;
-    height: auto;
 }
 .print-info {
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
+    color: #000;
 }
 .print-title {
     margin-right: 10px;
+}
+/*new */
+.hvr-rectangle-out {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    background: #e1e1e1;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.hvr-rectangle-out:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.hvr-rectangle-out:hover {
+    cursor: pointer;
+}
+.hvr-rectangle-out:hover:before, .hvr-rectangle-out:focus:before, .hvr-rectangle-out:active:before {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.first:before {
+    background-image: url(./images/print-hover-1.png);
+}
+.first {
+    background-image: url(./images/Bouquet\ of\ Flowers\ in\ a\ Vase.jpg);
+}
+.second {
+    background-image: url(./images/Fishing\ in\ Spring\,\ the\ Pont\ de\ Clichy.jpg);
+}
+.second:before {
+    background-image: url(./images/print-hover-2.png);
+}
+.third {
+    background-image: url(./images/Wheat\ Field\ with\ Cypresses.jpg);
+}
+.third:before {
+    background-image: url(./images/print-hover-3.png);
+}
+div.print {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 375px;
+    border: 1px solid #000;
 }
 /*========== EVENTS ============*/
 .events {
@@ -440,6 +492,6 @@ footer {
 }
 .foot-nav li {
     list-style-type: none;
-    line-height: 2.8rem;
+    line-height: 4rem;
     font-weight: 500;
 }
